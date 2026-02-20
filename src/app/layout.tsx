@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Noto_Kufi_Arabic } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/Header";
+import Footer from "@/components/Footer";
+import { Slide, ToastContainer } from "react-toastify";
 
 const notoKufi = Noto_Kufi_Arabic({
   variable: "--font-kufi-arabic",
@@ -18,10 +20,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${ notoKufi.variable } ${ notoKufi.className } antialiased`}>
+        <ToastContainer autoClose={5000} theme='light' position='top-center' closeOnClick={true} pauseOnFocusLoss draggable pauseOnHover transition={Slide} />
         <Header />
         <main>
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );
